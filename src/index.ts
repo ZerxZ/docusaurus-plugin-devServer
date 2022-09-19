@@ -32,7 +32,7 @@ export default function myPlugin(
 ): Plugin<void> {
   return {
     // change this to something unique, or caches may conflict!
-    name: "docusaurus-plugin-devServer-proxy",
+    name: "docusaurus-plugin-devServer",
     configureWebpack(config, isServer, utils) {
       if (isServer) return {}
       const devServer = options.devServer
