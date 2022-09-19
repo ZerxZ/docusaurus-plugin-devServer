@@ -31,8 +31,14 @@ export default function myPlugin(
     name: "docusaurus-plugin-devServer-proxy",
     configureWebpack(config, isServer, utils) {
       if (isServer) return {}
+      const option = Object.entries(options).reduce((p, [key, value], i) => {
+        if (key != "id") {
+          p[key] = value
+        }
+        return p
+      }, {} as any)
+      const devServer = Object.assign({}, defalutDevServerOption, option)
 
-      const devServer = Object.assign({}, defalutDevServerOption, options)
       return <webpack.Configuration>{
         devServer,
       }

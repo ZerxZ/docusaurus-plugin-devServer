@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-plugin-devserver-proxy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Docusaurus v2 plugin!",
   "types": "build/index.d.ts",
   "main": "build/index.js",
