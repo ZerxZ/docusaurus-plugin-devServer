@@ -1,11 +1,12 @@
 {
-  "name": "template-docusaurus-plugin",
-  "version": "1.0.0",
+  "name": "docusaurus-plugin-devserver-proxy",
+  "version": "1.0.2",
   "description": "A Docusaurus v2 plugin!",
-  "main": "src/index.js",
-  "repository": "https://github.com/rdilweb/template-docusaurus-plugin.git",
-  "author": "Reece Dunham <me@rdil.rocks>",
-  "license": "Unlicense",
+  "types": "build/index.d.ts",
+  "main": "build/index.js",
+  "repository": "https://github.com/ZerxZ/docusaurus-plugin-devServer-proxy.git",
+  "author": "ZerxZ",
+  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "prettier": "prettier --write **/*.{js,jsx,ts,tsx,md,yml,json}"
@@ -20,7 +21,9 @@
     "@types/react-helmet": "^6.1.0",
     "commander": "^6.2.1",
     "prettier": "^2.2.1",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "webpack": "^5.74.0",
+    "webpack-dev-server": "^4.11.0"
   },
   "peerDependencies": {
     "@docusaurus/core": "2.x"
