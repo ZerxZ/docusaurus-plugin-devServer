@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-plugin-devserver-proxy",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A Docusaurus v2 plugin!",
   "types": "build/index.d.ts",
   "main": "build/index.js",
@@ -8,6 +8,8 @@
   "author": "ZerxZ",
   "license": "MIT",
   "scripts": {
+    "prepublish": "tsc",
+    "publish": "npm publish",
     "build": "tsc",
     "prettier": "prettier --write **/*.{js,jsx,ts,tsx,md,yml,json}"
   },

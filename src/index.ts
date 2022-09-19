@@ -5,6 +5,10 @@
 import { Plugin, LoadContext } from "@docusaurus/types"
 import webpack from "webpack"
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server"
+export interface IDevServerOptions {
+  id?: string
+  devServer?: DevServerConfiguration
+}
 
 const defalutDevServerOption: DevServerConfiguration = {
   headers: [
@@ -24,20 +28,16 @@ const defalutDevServerOption: DevServerConfiguration = {
 }
 export default function myPlugin(
   context: LoadContext,
-  options: DevServerConfiguration
+  options: IDevServerOptions
 ): Plugin<void> {
   return {
     // change this to something unique, or caches may conflict!
     name: "docusaurus-plugin-devServer-proxy",
     configureWebpack(config, isServer, utils) {
       if (isServer) return {}
-      const option = Object.entries(options).reduce((p, [key, value], i) => {
-        if (key != "id") {
-          p[key] = value
-        }
-        return p
-      }, {} as any)
-      const devServer = Object.assign({}, defalutDevServerOption, option)
+      const devServer = options.devServer
+        ? Object.assign({}, defalutDevServerOption, options.devServer)
+        : Object.assign({}, defalutDevServerOption)
 
       return <webpack.Configuration>{
         devServer,

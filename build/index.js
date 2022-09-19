@@ -26,14 +26,9 @@ function myPlugin(context, options) {
         configureWebpack: function (config, isServer, utils) {
             if (isServer)
                 return {};
-            var option = Object.entries(options).reduce(function (p, _a, i) {
-                var key = _a[0], value = _a[1];
-                if (key != "id") {
-                    p[key] = value;
-                }
-                return p;
-            }, {});
-            var devServer = Object.assign({}, defalutDevServerOption, option);
+            var devServer = options.devServer
+                ? Object.assign({}, defalutDevServerOption, options.devServer)
+                : Object.assign({}, defalutDevServerOption);
             return {
                 devServer: devServer,
             };
